@@ -1,4 +1,4 @@
-from utils.point import Point
+from src.models.point import Point
 import pygame
 
 class Sprite(pygame.sprite.Sprite):
