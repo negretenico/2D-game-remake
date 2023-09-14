@@ -9,11 +9,11 @@ class TestPlayer(unittest.TestCase):
     def test_moves_left(self):
         player = Player(position=Point(0,0),image="assets\\images\\back_ground.png")
         player.move_left()
-        self.assertGreater(player.position.x,0)
+        self.assertLess(player.position.x,0)
     def test_move_right(self):
         player = Player(position=Point(0,0),image="assets\\images\\back_ground.png")
         player.move_right()
-        self.assertLess(player.position.x,0)
+        self.assertGreater(player.position.x,0)
     def test_jump(self):
         pass
     def test_croutch(self):
