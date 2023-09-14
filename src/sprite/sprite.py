@@ -11,3 +11,5 @@ class Sprite(pygame.sprite.Sprite):
         return self.__image
     def get_image_rect(self):
         return self.__image_ret
+    def move_horizontal(self,magnitude):
+        self.__image_ret.x +=magnitude

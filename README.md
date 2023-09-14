@@ -4,5 +4,5 @@ This repository is used to recreate a 2D game usinng pygame. The current game of
 
 ## Commands
 
-* <code>python src\main.py</code> runs application
+* <code>python main.py</code> runs application
 * <code>python run_tests.py</code> runs test suite
