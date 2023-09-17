@@ -4,6 +4,7 @@ import sys
 from typing import Final
 import pprint
 from src.models.point import Point
+from src.sound.music_manager import MusicManager
 from src.utils.key_bindings import KeyBindings 
 SCREEN_WIDTH: Final = 1280
 SCREEN_HEIGHT: Final = 720 
@@ -15,9 +16,14 @@ bg = pygame.transform.scale(bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
 screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 inital_point = Point(SCREEN_WIDTH//2,SCREEN_HEIGHT//2)
 idle = 'assets\\images\\Zetterburn\\zet_idle_new\\zet_idle_new_0.png'
+music = 'assets\\sound\\music\\music.mp3'
 player = Player(position=inital_point,image=idle)
 key_bindings = KeyBindings(player=player)
+music_manager = MusicManager()
 bindings = key_bindings.get_key_bindings()
+music_manager.load(music)
+music_manager.change_volume(.5)
+music_manager.play()
 while True:
     clock.tick(60)
     screen.blit(bg,(0,0))
@@ -25,4 +31,4 @@ while True:
     pygame.display.update()
     for event in pygame.event.get():
         if(event.type==pygame.KEYDOWN):
-            bindings.get(event.key)()
+            bindings.get(event.key,print)()
