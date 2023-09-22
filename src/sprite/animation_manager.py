@@ -30,7 +30,8 @@ class AnimationManager:
                     self.current_frame_index += 1
                     if self.current_frame_index >= len(animation_info["frames"]):
                         self.current_frame_index = 0
-
+    def get_name(self):
+        return self.current_animation
     def get_current_frame(self)->Surface:
         if self.current_animation:
             return self.animations[self.current_animation]['frames'][self.current_frame_index]
